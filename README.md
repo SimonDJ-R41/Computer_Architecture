@@ -1,7 +1,7 @@
 # Computer_Architecture
 This repository is meant for tasks in the course, DM548.
 
-Reminder when using (if one would) to not include the ".asm", since it'd then be deleted (looking into fixing it).
+Reminder when using the bash script, to not include the ".asm", since it'd then delete the file (looking into fixing it).
 
 Simply in Linux:
 ./asm_compiler project name, without ".asm"
