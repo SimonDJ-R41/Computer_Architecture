@@ -17,15 +17,22 @@ _start:
   Calculate the sum of 1+2+..+RAX, or RAX+..+3+2+1
   Output that sum
   Hint: Use 'labels' and the conditional branches you learned in the lecture*/
-/* Outcomment this, to use the addition function.
+/* Outcomment this, to use the addition function.*/
   mov $0, %rdx #Moves the constant 0 into the register, RDX
   loopAdd:
-  add %rax, %rdx
-  sub $1, %rax
-  cmp $0, %rax
-  jne loopAdd
+  add %rax, %rdx #Adds the values in the given registers "rax" and "rdx" and stores the result in the latter.
+  sub $1, %rax #Subtracts the immidiate value "1" from "rax" and stores the result in the latter.
+  cmp $0, %rax #Stores the value of the check "0==rax" in a unspecified cpu flag.
+  jne loopAdd #If the unspecified cpu flag is true, jump to the given instruction/label.
   mov %rdx, %rax
-*/
+
+  #Alternative/faster version. f(x) = x*(1+x)/2
+  mov %rax, %eax #x
+  add $1, %eax #x+1
+  mul %rax #x*(x+1)
+  shr $1, %eax #x*(x+1)/2
+  mov %eax, %rax
+
 
   #Task 3: Multiplication
   /*Put a constant in, e.g., RAX
@@ -47,7 +54,7 @@ _start:
   /*As before, but this time calculate the sum of each multiple of 3 or 5
   from 1 to the chosen constant. (e.g. 3+5+7..+15)*/
 
-  
+
 
   #Task 5: GDB
   /*Try out 'gdb'. Step through the program and note the changes of the registers.
